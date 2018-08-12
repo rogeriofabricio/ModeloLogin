@@ -1,5 +1,6 @@
 package br.com.rnsolucoesweb.modelologin;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,6 +38,7 @@ public class SignUp extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(SignUp.this, "Conta Criada Com Sucesso.", Toast.LENGTH_LONG).show();
+                    finish();
                 } else {
                     Toast.makeText(SignUp.this, "Falha ao Criar Conta.", Toast.LENGTH_LONG).show();
                 }

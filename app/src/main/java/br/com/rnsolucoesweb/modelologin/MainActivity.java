@@ -41,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
                 if (task.isSuccessful()) {
                     Toast.makeText(MainActivity.this, "Logado com Sucesso...", Toast.LENGTH_LONG).show();
+                    //Segue para activity Principal
+                    Intent startActivity = new Intent(MainActivity.this, StartActivity.class);
+                    startActivity(startActivity);
                 } else {
                     Toast.makeText(MainActivity.this, "Login Falhou...", Toast.LENGTH_LONG).show();
                 }
