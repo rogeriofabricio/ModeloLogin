@@ -12,11 +12,19 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText email;
-    private EditText pass;
+    private EditText studentID;
+    private EditText pin;
+    private DatabaseReference ref;
+    private String strID;
+    private String PIN;
 
     //private FirebaseAuth auth;
 
@@ -25,16 +33,47 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        email = (EditText)findViewById(R.id.studentID);
-        pass = (EditText)findViewById(R.id.pin);
+        studentID = (EditText)findViewById(R.id.studentID);
+        pin = (EditText)findViewById(R.id.pin);
+
+        ref = FirebaseDatabase.getInstance().getReference().child("Student");
         //auth = FirebaseAuth.getInstance();
     }
 
     public void btnLogin_click(View view) {
 
         //Recebe os dados do email e senha para autenticação
-//        String mEmail = email.getText().toString();
-//        String mePassword = password.getText().toString();
+        strID = studentID.getText().toString();
+        PIN = pin.getText().toString();
+
+        try {
+
+            ref.child(strID).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    Student student = dataSnapshot.getValue(Student.class);
+                    if (PIN.equals(student.getPin())) {
+                        Toast.makeText(MainActivity.this, "Logado com Sucesso...", Toast.LENGTH_LONG).show();
+                        Intent startActivity = new Intent(MainActivity.this, StartActivity.class);
+                        startActivity(startActivity);
+                    } else {
+                        Toast.makeText(MainActivity.this, "Falha ao logar...", Toast.LENGTH_LONG).show();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+        } catch(Exception ex) {
+            Toast.makeText(MainActivity.this, "Estudante não existe...", Toast.LENGTH_LONG).show();
+
+            ex.printStackTrace();
+        }
+
+
 //        auth.signInWithEmailAndPassword(mEmail, mePassword).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 //            @Override
 //            public void onComplete(@NonNull Task<AuthResult> task) {

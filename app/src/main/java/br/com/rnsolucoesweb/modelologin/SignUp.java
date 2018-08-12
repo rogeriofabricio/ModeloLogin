@@ -39,27 +39,36 @@ public class SignUp extends AppCompatActivity {
         courseName = (EditText)findViewById(R.id.courseName);
         level = (EditText)findViewById(R.id.levelProgram);
 
-        student = new Student();
         database = FirebaseDatabase.getInstance();
-        ref = database.getReference().child("Student");
+
     }
 
     public void btnRegistre_click(View view) {
 
-        student.setStudentID(stdID.getText().toString());
-        student.setCourse(courseName.getText().toString());
-        student.setPin(pin.getText().toString());
-        student.setLevel(level.getText().toString());
+//        student.setStudentID(stdID.getText().toString());
+//        student.setCourse(courseName.getText().toString());
+//        student.setPin(pin.getText().toString());
+//        student.setLevel(level.getText().toString());
 
-//        ref.child("studentID").setValue(stdID.getText().toString());
-//        ref.child("course").setValue(courseName.getText().toString());
-//        ref.child("pin").setValue(pin.getText().toString());
-//        ref.child("level").setValue(level.getText().toString());
+        student = new Student();
+        String strID2 = stdID.getText().toString();
+        ref = database.getReference().child("Student").child(strID2);
 
-        ref.child(student.getStudentID()).setValue(student);
+        ref.child("studentID").setValue(stdID.getText().toString());
+        ref.child("course").setValue(courseName.getText().toString());
+        ref.child("pin").setValue(pin.getText().toString());
+        ref.child("level").setValue(level.getText().toString());
 
-
-
+        ref.child(student.getStudentID()).setValue(student).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()) {
+                    Toast.makeText(SignUp.this, "Conta Criada Com Sucesso.", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(SignUp.this, "Falha ao criar conta.", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 
 //        auth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 //            @Override

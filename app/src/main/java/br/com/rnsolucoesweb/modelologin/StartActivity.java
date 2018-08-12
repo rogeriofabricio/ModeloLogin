@@ -27,9 +27,9 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
 
         lv = (ListView)findViewById(R.id.listView);
-        Query query = FirebaseDatabase.getInstance().getReference().child("student").child("str0098");
+        Query query = FirebaseDatabase.getInstance().getReference().child("student");
         FirebaseListOptions<Student> options = new FirebaseListOptions.Builder<Student>()
-                .setLayout(R.layout.activity_student)
+                .setLayout(R.layout.student)
                 .setLifecycleOwner(StartActivity.this)
                 .setQuery(query, Student.class)
                 .build();
@@ -40,13 +40,13 @@ public class StartActivity extends AppCompatActivity {
                 TextView stdID = v.findViewById(R.id.studentID);
                 TextView course = v.findViewById(R.id.course);
                 TextView program = v.findViewById(R.id.program);
-                TextView pin = v.findViewById(R.id.PIN);
+                TextView PIN = v.findViewById(R.id.PIN);
 
                 Student std = (Student) model;
                 stdID.setText(std.getStudentID().toString());
                 course.setText(std.getCourse().toString());
                 program.setText(std.getLevel().toString());
-                pin.setText(std.getPin().toString());
+                PIN.setText(std.getPin().toString());
             }
         };
 
