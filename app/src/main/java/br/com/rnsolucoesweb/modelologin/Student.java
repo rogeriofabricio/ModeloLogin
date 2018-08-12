@@ -6,17 +6,17 @@ import android.os.Bundle;
 public class Student extends AppCompatActivity {
 
     private String studentID;
-    private String pin;
+    private String Pin;
     private String course;
     private String level;
 
-
     public Student() {
+
     }
 
     public Student(String studentID, String pin, String course, String level) {
         this.studentID = studentID;
-        this.pin = pin;
+        this.Pin = pin;
         this.course = course;
         this.level = level;
     }
@@ -30,11 +30,11 @@ public class Student extends AppCompatActivity {
     }
 
     public String getPin() {
-        return pin;
+        return Pin;
     }
 
     public void setPin(String pin) {
-        this.pin = pin;
+        Pin = pin;
     }
 
     public String getCourse() {

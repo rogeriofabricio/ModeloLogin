@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.firebase.ui.database.FirebaseListAdapter;
+import com.firebase.ui.database.FirebaseListOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,7 +20,6 @@ public class StartActivity extends AppCompatActivity {
 
     private ListView lv;
     private FirebaseListAdapter adapter;
-    private Query query;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +27,10 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
 
         lv = (ListView)findViewById(R.id.listView);
-        query = FirebaseDatabase.getInstance().getReference().child("student");
+        Query query = FirebaseDatabase.getInstance().getReference().child("student").child("str0098");
         FirebaseListOptions<Student> options = new FirebaseListOptions.Builder<Student>()
-                .setLayout(R.layout.student)
-                .setLifecycleOwner(start.this)
+                .setLayout(R.layout.activity_student)
+                .setLifecycleOwner(StartActivity.this)
                 .setQuery(query, Student.class)
                 .build();
 

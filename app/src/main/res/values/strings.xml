@@ -2,12 +2,15 @@
     <string name="app_name">ModeloLogin</string>
 
     <string name="email">E-mail</string>
-    <string name="password">Senha</string>
+    <string name="password">Pin</string>
     <string name="PasswordConfirm">Confirme a Senha</string>
-    <string name="name">Nome</string>
+    <string name="name">Nome do Curso</string>
     <string name="login">Login</string>
     <string name="register">Nova Conta</string>
     <string name="confirm">Confirmar</string>
+    <string name="username">Entre com seu ID</string>
+    <string name="level">Programa</string>
+
 
 
 </resources>

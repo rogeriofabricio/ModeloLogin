@@ -16,39 +16,39 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainActivity extends AppCompatActivity {
 
     private EditText email;
-    private EditText password;
+    private EditText pass;
 
-    private FirebaseAuth auth;
+    //private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        email = (EditText)findViewById(R.id.email);
-        password = (EditText)findViewById(R.id.password);
-        auth = FirebaseAuth.getInstance();
+        email = (EditText)findViewById(R.id.studentID);
+        pass = (EditText)findViewById(R.id.pin);
+        //auth = FirebaseAuth.getInstance();
     }
 
     public void btnLogin_click(View view) {
 
         //Recebe os dados do email e senha para autenticação
-        String mEmail = email.getText().toString();
-        String mePassword = password.getText().toString();
-        auth.signInWithEmailAndPassword(mEmail, mePassword).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-
-                if (task.isSuccessful()) {
-                    Toast.makeText(MainActivity.this, "Logado com Sucesso...", Toast.LENGTH_LONG).show();
-                    //Segue para activity Principal
-                    Intent startActivity = new Intent(MainActivity.this, StartActivity.class);
-                    startActivity(startActivity);
-                } else {
-                    Toast.makeText(MainActivity.this, "Login Falhou...", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+//        String mEmail = email.getText().toString();
+//        String mePassword = password.getText().toString();
+//        auth.signInWithEmailAndPassword(mEmail, mePassword).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//            @Override
+//            public void onComplete(@NonNull Task<AuthResult> task) {
+//
+//                if (task.isSuccessful()) {
+//                    Toast.makeText(MainActivity.this, "Logado com Sucesso...", Toast.LENGTH_LONG).show();
+//                    //Segue para activity Principal
+//                    Intent startActivity = new Intent(MainActivity.this, StartActivity.class);
+//                    startActivity(startActivity);
+//                } else {
+//                    Toast.makeText(MainActivity.this, "Login Falhou...", Toast.LENGTH_LONG).show();
+//                }
+//            }
+//        });
 
     }
 
