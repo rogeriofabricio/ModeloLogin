@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "610965348228",
+    "firebase_url": "https://modelologin-34c73.firebaseio.com",
+    "project_id": "modelologin-34c73",
+    "storage_bucket": "modelologin-34c73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:610965348228:android:ccc053dae9200f36",
+        "android_client_info": {
+          "package_name": "br.com.rnsolucoesweb.modelologin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "610965348228-mt6rff6290spa84s2um4auke8v1e5vpo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.rnsolucoesweb.modelologin",
+            "certificate_hash": "e42e36a1208047341f93d407cebca0e63dbf2ee0"
+          }
+        },
+        {
+          "client_id": "610965348228-ta7vaum3c8g0j3m14hgpt1j12vo82hae.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlD7qxImcEVtpHipEm4Mwk0-JLB8zbBy8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "610965348228-ta7vaum3c8g0j3m14hgpt1j12vo82hae.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
