@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".auth.EmailPasswordActivity">
+        <activity android:name=".database.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,12 +48,13 @@
             android:label="@string/label_firebase_ui" />
 
         <activity
-            android:name=".database.MainActivity"
+            android:name=".auth.EmailPasswordActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" />
-        <activity android:name=".database.NewPostActivity" />
 
+        <activity android:name=".database.NewPostActivity" />
         <activity android:name=".database.PostDetailActivity"></activity>
+        <activity android:name=".database.MainActivity"></activity>
 
     </application>
 
